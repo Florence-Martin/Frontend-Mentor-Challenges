@@ -1,3 +1,7 @@
+# Frontend Mentor challenges
+
+#### [qr-code-component](./apps/qr-code-component/)
+
 # Turborepo starter
 
 This Turborepo starter is maintained by the Turborepo core team.
