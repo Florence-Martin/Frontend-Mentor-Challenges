@@ -1,6 +1,14 @@
 {
   "name": "frontend-mentor-challenges",
   "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "apps": [
+      "apps/*"
+    ]
+  },
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
@@ -9,6 +17,7 @@
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
+    "@types/tailwindcss": "^3.0.11",
     "prettier": "^3.5.0",
     "turbo": "^2.4.2",
     "typescript": "5.7.3"
@@ -17,8 +26,8 @@
     "node": ">=18"
   },
   "packageManager": "npm@10.8.2",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  "dependencies": {
+    "next": "^15.1.7",
+    "tailwindcss": "^4.0.6"
+  }
 }
