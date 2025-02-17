@@ -13,11 +13,18 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      - name: Prevent duplicate Vercel deploys
+        run: |
+          if [ "$GITHUB_ACTOR" == "vercel[bot]" ]; then
+            echo "Skipping deployment triggered by Vercel auto-deploy"
+            exit 0
+          fi
+
       - name: Install Dependencies
         run: npm install
 
       - name: Install Vercel CLI
-        run: npm install -g vercel # ✅ Ajoute cette ligne
+        run: npm install -g vercel
 
       - name: Deploy each challenge to Vercel
         env:

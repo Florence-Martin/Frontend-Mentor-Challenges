@@ -4,7 +4,7 @@ Ce repository regroupe plusieurs challenges réalisés à partir de **Frontend M
 
 ## 🚀 Déploiement Automatisé avec GitHub Actions
 
-Le déploiement est automatisé grâce à **GitHub Actions** :
+Le déploiement est automatisé grâce à **GitHub Actions** (celui de Vercel est désactivé pour éviter les conflits):
 
 - Chaque **push** sur `main` déclenche le workflow.
 - Le projet est déployé sur **Vercel** en continu.
