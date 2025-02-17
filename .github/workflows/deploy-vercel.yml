@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2 # Évite les problèmes si c'est le premier commit
 
       - name: Prevent duplicate Vercel deploys
         run: |
@@ -20,21 +22,34 @@ jobs:
             exit 0
           fi
 
-      - name: Install Dependencies
-        run: npm install
-
       - name: Install Vercel CLI
         run: npm install -g vercel
 
-      - name: Deploy each challenge to Vercel
+      - name: Detect modified challenges
+        id: detect_changes
+        run: |
+          CHANGED_APPS=$(git diff --name-only HEAD^ HEAD | grep -E '^apps/' | cut -d'/' -f2 | sort -u || true)
+          if [ -z "$CHANGED_APPS" ]; then
+            echo "No changes detected, skipping deployment."
+            echo "APPS=" >> $GITHUB_ENV
+          else
+            echo "Changed apps: $CHANGED_APPS"
+            echo "APPS=$CHANGED_APPS" >> $GITHUB_ENV
+          fi
+
+      - name: Deploy each modified challenge to Vercel
+        if: env.APPS != ''
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          for challenge in apps/*; do
-            if [ -d "$challenge" ]; then
-              echo "Deploying $challenge..."
-              cd "$challenge" || exit 1
+          for challenge in $APPS; do
+            if [ -d "apps/$challenge" ]; then
+              echo "Deploying apps/$challenge..."
+              cd "apps/$challenge" || exit 1
+              npm install  # 🔹 Installe les dépendances uniquement pour l’app concernée
               vercel --token $VERCEL_TOKEN --prod --yes
               cd ../..
+            else
+              echo "Skipping non-existent directory: apps/$challenge"
             fi
           done
