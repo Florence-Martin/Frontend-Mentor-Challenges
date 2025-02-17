@@ -8,8 +8,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "skipLibCheck": true,
-    "baseUrl": "./",
-    "jsx": "preserve"
+    "baseUrl": "./"
   },
   "exclude": ["node_modules"]
 }

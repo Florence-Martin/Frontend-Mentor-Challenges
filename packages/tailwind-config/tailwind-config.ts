@@ -1,9 +1,11 @@
 import type { Config } from "tailwindcss";
 
-const config: Config = {
-  content: ["../../apps/**/*.{js,ts,jsx,tsx}"],
-  theme: { extend: {} },
+const sharedConfig: Config = {
+  content: [],
+  theme: {
+    extend: {}, // Pas de couleurs ni de polices ici !
+  },
   plugins: [],
 };
 
-export default config;
+export default sharedConfig;
