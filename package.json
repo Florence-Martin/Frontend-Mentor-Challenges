@@ -18,7 +18,8 @@
     "typescript": "^5.7.3"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=18",
+    "npm": ">=7"
   },
   "packageManager": "npm@10.8.2",
   "dependencies": {
