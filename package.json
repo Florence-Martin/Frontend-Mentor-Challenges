@@ -1,14 +1,10 @@
 {
   "name": "frontend-mentor-challenges",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ],
-    "apps": [
-      "apps/*"
-    ]
-  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
