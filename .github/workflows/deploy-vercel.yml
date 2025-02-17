@@ -22,7 +22,8 @@ jobs:
         run: |
           for challenge in apps/*; do
             if [ -d "$challenge" ]; then
-              cd $challenge
+              echo "Deploying $challenge..."
+              cd "$challenge" || exit 1
               vercel --token $VERCEL_TOKEN --prod --yes
               cd ../..
             fi
