@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "vercel-build": "npm install && npm run build"
   },
   "devDependencies": {
     "@types/tailwindcss": "^3.0.11",
