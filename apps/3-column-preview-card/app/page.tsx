@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -18,9 +19,9 @@ export default function Home() {
             Choose a sedan for its affordability and excellent fuel economy.
             Ideal for cruising in the city or on your next road trip.
           </p>
-          <a href="#" className="btn">
+          <Link href="#" className="btn">
             Learn More
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -37,9 +38,9 @@ export default function Home() {
             Take an SUV for its spacious interior, power, and versatility.
             Perfect for your next family vacation and off-road adventures.
           </p>
-          <a href="#" className="btn">
+          <Link href="#" className="btn">
             Learn More
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -56,9 +57,9 @@ export default function Home() {
             Cruise in the best car brands without the bloated prices. Enjoy the
             enhanced comfort of a luxury rental and arrive in style.
           </p>
-          <a href="#" className="btn">
+          <Link href="#" className="btn">
             Learn More
-          </a>
+          </Link>
         </div>
       </section>
     </main>
