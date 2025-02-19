@@ -17,9 +17,10 @@ jobs:
 
       - name: Prevent duplicate Vercel deploys # Skip deployment if triggered by Vercel bot
         run: |
-          if [ "$GITHUB_ACTOR" == "vercel[bot]" ]; then
+          if [[ "$GITHUB_ACTOR" == "vercel[bot]" ]]; then
             echo "Skipping deployment triggered by Vercel auto-deploy"
-            exit 0  # Exit if the deployment is triggered by Vercel bot to prevent duplicates
+            exit 0 # Quitter proprement pour éviter le double déploiement
+          fi
 
       - name: Install Vercel CLI
         run: npm install -g vercel
