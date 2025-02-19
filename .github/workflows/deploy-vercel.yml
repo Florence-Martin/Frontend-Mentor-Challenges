@@ -35,6 +35,7 @@ jobs:
           else
             echo "Changed apps: $CHANGED_APPS"
             echo "APPS=$CHANGED_APPS" >> $GITHUB_ENV  # Set the APPS environment variable with the list of changed apps
+          fi
 
       - name: Deploy each modified challenge to Vercel
         if: env.APPS != '' # Only run this step if there are modified apps
