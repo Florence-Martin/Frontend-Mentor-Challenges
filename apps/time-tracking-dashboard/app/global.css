@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================================
+   Global Styles
+   ================================ */
+
+/* Import Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+
+/* ================================
+   CSS Variables
+   ================================ */
+:root {
+  /* Layout */
+  --mobile-width: 375px;
+  --desktop-width: 1440px;
+
+  /* Primary Colors */
+  --primary-blue: hsl(246, 80%, 60%);
+
+  --work-light-red: hsl(15, 100%, 70%);
+  --play-soft-blue: hsl(195, 74%, 62%);
+  --study-light-red: hsl(348, 100%, 68%);
+  --exercise-lime-green: hsl(145, 58%, 55%);
+  --social-violet: hsl(264, 64%, 52%);
+  --self-care-soft-orange: hsl(43, 84%, 65%);
+
+  /* Neutral Colors */
+  --very-dark-blue: hsl(226, 43%, 10%);
+  --dark-blue: hsl(235, 46%, 20%);
+  --desaturated-blue: hsl(235, 45%, 61%);
+  --pale-blue: hsl(236, 100%, 87%);
+
+  /* Typography */
+  --font-family: "Rubik", sans-serif;
+  --font-size-body: 18px;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+}
+
+/* ================================
+   Global Reset
+   ================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  background-color: var(--very-dark-blue);
+  color: var(--pale-blue);
+}
+
+/* Utility Classes */
+.text-primary {
+  color: var(--primary-blue);
+}
+
+.text-work {
+  color: var(--work-light-red);
+}
+
+.text-play {
+  color: var(--play-soft-blue);
+}
+
+.text-study {
+  color: var(--study-light-red);
+}
+
+.text-exercise {
+  color: var(--exercise-lime-green);
+}
+
+.text-social {
+  color: var(--social-violet);
+}
+
+.text-self-care {
+  color: var(--self-care-soft-orange);
+}
