@@ -15,9 +15,10 @@ Le déploiement est entièrement géré via **GitHub Actions** pour un contrôle
 
 ## 🌐 Challenges disponibles
 
-| Challenge                 | Aperçu                                        | Lien en ligne                                                          |
-| ------------------------- | --------------------------------------------- | ---------------------------------------------------------------------- |
-| **3-column-preview-card** | 🔗 [challenge](./apps/3-column-preview-card/) | 🚀 [Voir en ligne](https://3-column-preview-card-swart-nu.vercel.app/) |
+| Challenge                   | Aperçu                                          | Lien en ligne                                                                                      |
+| --------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| **3-column-preview-card**   | 🔗 [challenge](./apps/3-column-preview-card/)   | 🚀 [Voir en ligne](https://3-column-preview-card-swart-nu.vercel.app/)                             |
+| **time-tracking-dashboard** | 🔗 [challenge](./apps/time-tracking-dashboard/) | 🚀 [Voir en ligne](https://time-tracking-dashboard-kh0txo556-florencemartins-projects.vercel.app/) |
 
 ---
 
