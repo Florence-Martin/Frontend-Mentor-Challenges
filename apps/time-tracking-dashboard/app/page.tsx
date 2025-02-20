@@ -18,7 +18,6 @@ export default function Home() {
 
   return (
     <div className="dashboard">
-      <h1>Challenge en cours de réalisation 🚧</h1>
       <main className="dashboard-grid">
         {/* Profile Card */}
         <div className="profile-card">

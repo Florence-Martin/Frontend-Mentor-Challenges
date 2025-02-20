@@ -203,6 +203,7 @@ Activity Cards
 }
 
 .card-content {
+  position: relative;
   background-color: var(--dark-blue);
   border-radius: 15px;
   padding: 1.5rem;
