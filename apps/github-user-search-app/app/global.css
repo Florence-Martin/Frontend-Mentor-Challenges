@@ -1,27 +1,399 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ================================
+  🎨 Global Styles
+================================ */
 
-/* Import des polices */
-@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400&family=Big+Shoulders+Display:wght@700&display=swap");
+/* Import Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
 
-/* Reset et styles globaux */
+/* ================================
+  🌍 CSS Variables
+================================ */
+:root {
+  /* Light Mode Colors */
+  --primary-blue: #0079ff;
+  --gray-dark: #697c9a;
+  --gray-medium: #4b6a9b;
+  --gray-darkest: #2b3442;
+  --bg-light: #f6f8ff;
+  --bg-white: #fefefe;
+
+  /* Dark Mode Colors */
+  --dark-primary-blue: #0079ff;
+  --dark-white: #ffffff;
+  --dark-bg-dark: #141d2f;
+  --dark-gray-dark: #1e2a47;
+
+  /* Typography */
+  --font-family: "Space Mono", monospace;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+}
+
+/* ================================
+  🌍 Global Reset
+================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ================================
+  🌞 Light Mode
+================================ */
 body {
-  background-color: hsl(0, 0%, 95%);
-  font-family: "Lexend Deca", sans-serif;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-darkest);
+  font-family: var(--font-family);
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: var(--font-weight-regular);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
-.container {
+/* ================================
+  🌙 Dark Mode
+================================ */
+.dark {
+  background-color: var(--dark-bg-dark);
+  color: var(--dark-white);
+}
+
+/* ================================
+  🎨 Theme Toggle Styles
+================================ */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 78px;
+  gap: 16px;
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.theme-label {
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* ================================
+  🖋️ Typography
+================================ */
+h1 {
+  font-size: 26px;
+  line-height: 38px;
+  font-weight: var(--font-weight-bold);
+  color: var(--gray-darkest);
+}
+
+.dark h1 {
+  color: var(--dark-white);
+}
+
+h2 {
+  font-size: 22px;
+  line-height: 33px;
+  font-weight: var(--font-weight-bold);
+}
+
+h3 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: var(--font-weight-regular);
+}
+
+h4 {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: var(--font-weight-regular);
+}
+
+/* ================================
+  Hero
+================================ */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 730px;
+  height: 38px;
+  margin: auto;
+  margin-bottom: 36px;
+}
+
+/* ================================
+  Search Bar Styles
+================================ */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-white);
+  width: 730px;
+  height: 69px;
+  padding: 0 0.5rem;
+  border-radius: 15px;
+  gap: 1rem;
+  margin: auto;
+  margin-bottom: 24px;
+}
+
+.dark .search-bar {
+  background-color: var(--dark-gray-dark);
+}
+
+.search-icon {
+  color: var(--gray-dark);
+}
+
+.search-input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 18px;
+  font-weight: var(--font-weight-regular);
+}
+
+.search-button {
+  background-color: var(--primary-blue);
+  color: var(--dark-white);
+  border: none;
+  width: 106px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.search-button:hover {
+  background-color: #60abff;
+}
+
+.error-message {
+  color: #f74646;
+  font-family: var(--font-family);
+  font-size: 15px;
+  font-weight: var(--font-weight-bold);
+  margin-left: 10px;
+}
+
+/* ================================
+  User Card Styles
+================================ */
+.user-card {
+  background-color: var(--bg-white);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 730px;
+  min-height: 419px;
+  margin: auto;
+}
+
+.dark .user-card {
+  background-color: var(--dark-gray-dark);
+}
+
+/* Header */
+.user-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.user-avatar {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-join {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user-join p {
+  margin-top: 0.5rem;
+}
+
+.username {
+  color: var(--primary-blue);
+  font-size: 16px;
+}
+
+.joined {
+  color: var(--gray-dark);
+  font-size: 14px;
+}
+
+.dark .joined {
+  color: var(--dark-white);
+}
+
+/* User Content */
+.user-content {
+  margin-top: 2rem;
+  margin-left: 8rem;
+}
+
+/* Bio */
+.bio {
+  margin-top: 1rem;
+  font-size: 15px;
+  color: var(--gray-darkest);
+}
+
+.dark .bio {
+  color: var(--dark-white);
+}
+
+.bio.empty {
+  opacity: 0.5;
+}
+
+/* Statistics */
+.stats {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--bg-light);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+}
+
+.dark .stats {
+  background-color: var(--dark-bg-dark);
+}
+
+.stats h4 {
+  font-size: 13px;
+  font-weight: var(--font-weight-regular);
+  color: var(--gray-darkest);
+}
+
+.dark .stats h4 {
+  color: var(--dark-white);
+}
+
+.stats p {
+  font-size: 22px;
+  font-weight: var(--font-weight-bold);
+  color: var(--gray-darkest);
+}
+
+.dark .stats p {
+  color: var(--dark-white);
+}
+
+/* User Details */
+.user-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* ================================
+  🌍 Icons and Data Availability
+================================ */
+.not-available .icon {
+  opacity: 0.5;
+}
+
+.not-available p {
+  opacity: 0.5;
+}
+
+/* User Detail Item */
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray-medium);
+}
+
+.dark .detail-item {
+  color: var(--dark-white);
+}
+
+.user-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray-medium);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.dark .user-link {
+  color: var(--dark-white);
+}
+
+.user-link:hover {
+  text-decoration: underline;
+}
+
+/* ================================
+  🌍 Tooltip Styles
+================================ */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Le texte du tooltip (caché par défaut) */
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 200px;
+  background-color: var(--gray-dark);
+  color: var(--dark-white);
   text-align: center;
+  padding: 6px;
+  border-radius: 5px;
+  font-size: 12px;
+  position: absolute;
+  bottom: 130%; /* Place la bulle au-dessus de la barre */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 100;
+}
+
+/* Tooltip visible au survol */
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Ajustement en dark mode */
+.dark .tooltip .tooltip-text {
+  background-color: var(--dark-gray-dark);
+  color: var(--dark-white);
 }

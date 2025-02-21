@@ -7,7 +7,7 @@ Ce repository regroupe plusieurs challenges réalisés à partir de **Frontend M
 Le déploiement est entièrement géré via **GitHub Actions** pour un contrôle précis et optimisé :
 
 - ✅ **Vercel Auto-Deploy est désactivé** pour éviter les déploiements en double.
-- 🚀 **Seules les applications modifiées sont déployées** (grâce à un script).
+- 🚀 **Seules les applications modifiées sont déployées**.
 - 📂 **Chaque push sur `main`** déclenche un workflow qui détecte les modifications et ne déploie que les projets concernés.
 - 🔍 **Les logs des déploiements sont accessibles dans l’onglet "Actions" de GitHub**.
 
@@ -15,11 +15,11 @@ Le déploiement est entièrement géré via **GitHub Actions** pour un contrôle
 
 ## 🌐 Challenges disponibles
 
-| Challenge                   | Aperçu                                                 | Lien en ligne                                                              |
-| --------------------------- | ------------------------------------------------------ | -------------------------------------------------------------------------- |
-| **3-column-preview-card**   | 🔗 [challenge](./apps/3-column-preview-card/)          | 🚀 [Voir en ligne](https://3-column-preview-card-swart-nu.vercel.app/)     |
-| **time-tracking-dashboard** | 🔗 [challenge](./apps/time-tracking-dashboard/)        | 🚀 [Voir en ligne](https://time-tracking-dashboard-rho-nine.vercel.app/)   |
-| **githib-user-search-app**  | 🔗 [premium-challenge](./apps/github-user-search-app/) | 🚀 [Voir en ligne](https://github-user-search-app-lovat-seven.vercel.app/) |
+| Challenge                   | Niveau | Aperçu                                                 | Lien en ligne                                                              |
+| --------------------------- | ------ | ------------------------------------------------------ | -------------------------------------------------------------------------- |
+| **3-column-preview-card**   | NEWBIE | 🔗 [challenge](./apps/3-column-preview-card/)          | 🚀 [Voir en ligne](https://3-column-preview-card-swart-nu.vercel.app/)     |
+| **time-tracking-dashboard** | JUNIOR | 🔗 [challenge](./apps/time-tracking-dashboard/)        | 🚀 [Voir en ligne](https://time-tracking-dashboard-rho-nine.vercel.app/)   |
+| **github-user-search-app**  | JUNIOR | 🔗 [premium-challenge](./apps/github-user-search-app/) | 🚀 [Voir en ligne](https://github-user-search-app-lovat-seven.vercel.app/) |
 
 ---
 
