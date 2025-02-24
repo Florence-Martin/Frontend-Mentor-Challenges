@@ -1,8 +1,10 @@
 ### 🎯 Résumé : Breakpoints clés
 
-- 📱 **Mobile** : `0 - 480px`
-- 📊 **Tablette** : `768px - 1024px`
-- 💻 **Desktop** : `1024px - 1280px`
+| 🖥️ **Type** | 📏 **Largeur (px)** | 🎯 **@media**                |
+| ----------- | ------------------- | ---------------------------- |
+| **Mobile**  | ≤ 767px             | _Pas besoin de media query_  |
+| **Tablet**  | 768px - 1024px      | `@media (min-width: 768px)`  |
+| **Desktop** | ≥ 1025px            | `@media (min-width: 1025px)` |
 
 ---
 
