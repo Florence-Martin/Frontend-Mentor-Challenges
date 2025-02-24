@@ -8,5 +8,4 @@
 
 ---
 
-J'ai démarré par le mode Desktop, et donc appliqué `max-width` pour les ajustements.
 🛠 **Approche mobile-first** : j'aurai du commencer avec un design mobile et utilisez `min-width` pour les ajustements.
