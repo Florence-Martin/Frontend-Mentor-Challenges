@@ -69,15 +69,15 @@ export default function UserCard({
 
         {/* Statistiques */}
         <div className="stats">
-          <div>
+          <div className="details-stats">
             <h4>Repos</h4>
             <p>{public_repos}</p>
           </div>
-          <div>
+          <div className="details-stats">
             <h4>Followers</h4>
             <p>{followers}</p>
           </div>
-          <div>
+          <div className="details-stats">
             <h4>Following</h4>
             <p>{following}</p>
           </div>

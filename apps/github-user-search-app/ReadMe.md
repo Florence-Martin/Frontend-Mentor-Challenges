@@ -1,5 +1,10 @@
-### Rendu en Desktop
+### 🎯 Résumé : Breakpoints clés
 
-Pour que la carte apparaisse, veuillez entrer le nom 'octocat' dans la barre de recherche.
+- 📱 **Mobile** : `0 - 480px`
+- 📊 **Tablette** : `768px - 1024px`
+- 💻 **Desktop** : `1024px - 1280px`
 
-### Rendu en Tablet et mobile en cours
+---
+
+J'ai démarré par le mode Desktop, et donc appliqué `max-width` pour les ajustements.
+🛠 **Approche mobile-first** : j'aurai du commencer avec un design mobile et utilisez `min-width` pour les ajustements.
