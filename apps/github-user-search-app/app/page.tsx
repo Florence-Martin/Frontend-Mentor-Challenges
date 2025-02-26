@@ -29,7 +29,7 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <>
       {/* Header */}
       <section className="hero">
         <h1>devfinder</h1>
@@ -48,6 +48,6 @@ export default function Home() {
 
       {/* Affichage de la carte utilisateur SEULEMENT si `user` est défini */}
       {user && <UserCard {...user} />}
-    </main>
+    </>
   );
 }

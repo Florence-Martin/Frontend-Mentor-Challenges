@@ -45,19 +45,91 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-dm-sans)", "sans-serif"],
-        mono: ["var(--font-fira-code)", "monospace"],
+        sans: ["var(--font-dm-sans)", "DM Sans", "sans-serif"],
+        mono: ["var(--font-fira-code)", "Fira Code", "monospace"],
       },
       fontSize: {
-        "preset-1": ["40px", { lineHeight: "130%", letterSpacing: "-1px" }],
-        "preset-2": ["32px", { lineHeight: "130%", letterSpacing: "-0.5px" }],
-        "preset-3": ["28px", { lineHeight: "130%", letterSpacing: "-0.5px" }],
-        "preset-4": ["24px", { lineHeight: "130%", letterSpacing: "-0.5px" }],
-        "preset-5": ["20px", { lineHeight: "130%", letterSpacing: "-0.5px" }],
-        "preset-6": ["18px", { lineHeight: "150%", letterSpacing: "-0.5px" }],
-        "preset-7": ["18px", { lineHeight: "150%", letterSpacing: "-0.2px" }],
-        "preset-8": ["16px", { lineHeight: "130%", letterSpacing: "-0.2px" }],
-        "preset-9": ["16px", { lineHeight: "146%", letterSpacing: "-0.4px" }],
+        "preset-1": [
+          "40px",
+          {
+            lineHeight: "130%",
+            letterSpacing: "-1px",
+            fontWeight: "800",
+          },
+        ],
+        "preset-2": [
+          "32px",
+          {
+            lineHeight: "130%",
+            letterSpacing: "-0.5px",
+            fontWeight: "800",
+          },
+        ],
+        "preset-3": [
+          "28px",
+          {
+            lineHeight: "130%",
+            letterSpacing: "-0.5px",
+            fontWeight: "700",
+          },
+        ],
+        "preset-4": [
+          "24px",
+          {
+            lineHeight: "130%",
+            letterSpacing: "-0.5px",
+            fontWeight: "600",
+          },
+        ],
+        "preset-5": [
+          "20px",
+          {
+            lineHeight: "130%",
+            letterSpacing: "-0.5px",
+            fontWeight: "600",
+          },
+        ],
+        "preset-6": [
+          "18px",
+          {
+            lineHeight: "150%",
+            letterSpacing: "-0.5px",
+            fontWeight: "500",
+          },
+        ],
+        "preset-7": [
+          "18px",
+          {
+            lineHeight: "150%",
+            letterSpacing: "-0.2px",
+            fontWeight: "400",
+          },
+        ],
+        "preset-8": [
+          "16px",
+          {
+            lineHeight: "130%",
+            letterSpacing: "-0.2px",
+            fontWeight: "400",
+          },
+        ],
+        "preset-8-italic": [
+          "16px",
+          {
+            lineHeight: "130%",
+            letterSpacing: "-0.2px",
+            fontWeight: "400",
+            fontStyle: "italic",
+          },
+        ],
+        "preset-9": [
+          "16px",
+          {
+            lineHeight: "146%",
+            letterSpacing: "-0.4px",
+            fontWeight: "400",
+          },
+        ],
       },
       spacing: {
         0: "0px",

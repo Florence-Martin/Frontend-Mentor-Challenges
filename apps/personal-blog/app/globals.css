@@ -2,20 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Définition des variables CSS */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-sans: "DM Sans", sans-serif;
+  --font-mono: "Fira Code", monospace;
+
+  /* Mode clair */
+  --background: #fbf9f7; /* Correspond à neutral.100 */
+  --foreground: #4a4846; /* Correspond à neutral.600 */
+  --heading-color: #34302d;
+  --date-color: #4a4846;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Mode sombre */
+.dark {
+  --background: #1c1a19; /* Correspond à neutral.900 */
+  --foreground: #c0bfbf; /* Correspond à neutral.400 */
+  --heading-color: #ffffff;
+  --date-color: #c0bfbf;
+}
+
+/* Appliquer les polices aux classes Tailwind */
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
 }
