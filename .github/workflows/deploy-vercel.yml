@@ -29,12 +29,16 @@ jobs:
         id: detect_changes # Set an ID for this step to reference its outputs later
         run: |
           CHANGED_APPS=$(git diff --name-only HEAD^ HEAD | grep -E '^apps/' | cut -d'/' -f2 | sort -u || true)
+
+          # Nettoyage de la variable pour supprimer les retours à la ligne
+          CHANGED_APPS=$(echo "$CHANGED_APPS" | tr '\n' ' ' | xargs)
+
           if [ -z "$CHANGED_APPS" ]; then
             echo "No changes detected, skipping deployment."
-            echo "APPS=" >> $GITHUB_ENV  # Set an empty APPS environment variable if no changes are detected
+            echo "APPS=" >> $GITHUB_ENV
           else
             echo "Changed apps: $CHANGED_APPS"
-            echo "APPS=$CHANGED_APPS" >> $GITHUB_ENV  # Set the APPS environment variable with the list of changed apps
+            echo "APPS=$CHANGED_APPS" >> $GITHUB_ENV
           fi
 
       - name: Deploy each modified challenge to Vercel
