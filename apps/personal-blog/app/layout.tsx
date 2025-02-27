@@ -1,9 +1,7 @@
-"use client";
-
 import { DM_Sans, Fira_Code } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/layout/Footer";
-import { ThemeProvider } from "next-themes";
+import Providers from "./components/ThemeProvider";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -27,14 +25,10 @@ export default function RootLayout({
       <body
         className={`${dmSans.variable} ${firaCode.variable} font-sans antialiased bg-[var(--background)] text-[var(--foreground)] min-h-screen transition-colors`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem={false}
-        >
+        <Providers>
           <main className="max-w-2xl mx-auto ">{children}</main>
           <Footer />
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
