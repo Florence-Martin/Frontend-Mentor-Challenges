@@ -10,7 +10,7 @@
     "dev": "next dev",
     "build": "turbo run build",
     "start": "next start",
-    "vercel-build": "npm install && npm run build"
+    "vercel-build": "turbo run build --filter=personal-blog"
   },
   "devDependencies": {
     "@types/tailwindcss": "^3.0.11",
