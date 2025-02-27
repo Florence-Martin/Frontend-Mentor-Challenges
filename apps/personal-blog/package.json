@@ -3,10 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "turbo run dev --filter=personal-blog",
-    "build": "turbo run build --filter=personal-blog",
-    "start": "turbo run start --filter=personal-blog",
-    "vercel-build": "npm install --legacy-peer-deps && npx turbo run build --filter=personal-blog"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "lucide": "^0.476.0",

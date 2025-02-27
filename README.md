@@ -2,15 +2,6 @@
 
 Ce repository regroupe plusieurs challenges réalisés à partir de **Frontend Mentor** pour améliorer mes compétences en frontend. 🚀
 
-## 🚀 Déploiement Automatisé avec GitHub Actions
-
-Le déploiement est entièrement géré via **GitHub Actions** pour un contrôle précis et optimisé :
-
-- ✅ **Vercel Auto-Deploy est désactivé** pour éviter les déploiements en double.
-- 🚀 **Seules les applications modifiées sont déployées**.
-- 📂 **Chaque push sur `main`** déclenche un workflow qui détecte les modifications et ne déploie que les projets concernés.
-- 🔍 **Les logs des déploiements sont accessibles dans l’onglet "Actions" de GitHub**.
-
 ---
 
 ## 🌐 Challenges disponibles
@@ -24,25 +15,9 @@ Le déploiement est entièrement géré via **GitHub Actions** pour un contrôle
 
 ---
 
-## 🛠 Comment fonctionne le workflow GitHub Actions ?
-
-1. **Détection des fichiers modifiés**
-
-   - Seules les apps situées dans `apps/` qui ont été modifiées sont sélectionnées.
-
-2. **Installation des dépendances**
-
-   - `npm install` est exécuté uniquement dans les répertoires des apps à déployer.
-
 ### 🚀 Déploiement sur Vercel
 
-Plutôt que d'utiliser l'intégration Git automatique de Vercel, le workflow gère le déploiement de manière optimisée :
-
-- ✅ **Utilisation d’un token sécurisé (`VERCEL_TOKEN`)** stocké dans les secrets GitHub.
-- 🔍 **Détection automatique des fichiers modifiés** : seules les apps concernées sont déployées.
-- 📂 **Déploiement indépendant** pour chaque app située dans `apps/`, évitant les mises à jour inutiles.
-- 🔄 **Meilleure gestion des erreurs** : si une app est supprimée, le workflow l'ignore au lieu de planter.
-- 🔥 **Optimisation pour les mono-repos** et **évite les redéploiements inutiles**.
+Jutiliser l'intégration Git automatique de Vercel.
 
 ---
 

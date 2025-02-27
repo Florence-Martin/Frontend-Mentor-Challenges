@@ -1,8 +1,8 @@
 "use client";
 
-import SearchBar from "components/SearchBar";
-import ThemeToggle from "components/ThemeToggle";
-import UserCard from "components/UserCard";
+import SearchBar from "app/components/SearchBar";
+import ThemeToggle from "app/components/ThemeToggle";
+import UserCard from "app/components/UserCard";
 import { useState } from "react";
 import { fetchGitHubUser } from "services/githubApi";
 
@@ -39,7 +39,7 @@ export default function Home() {
       {/* Search Bar */}
       <div className="tooltip">
         <SearchBar onSearch={handleSearch} />
-        <span className="tooltip-text">Try typing "octocat" 👀</span>
+        <span className="tooltip-text">Try typing &quot;octocat&quot; 👀</span>
       </div>
 
       {/* Gestion des états */}

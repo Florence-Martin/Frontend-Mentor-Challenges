@@ -9,6 +9,7 @@ export default function SearchBar({
   onSearch: (username: string) => void;
 }) {
   const [input, setInput] = useState("");
+  const [error, setError] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
   // ⚠️ Évite le rendu avant montage pour éviter l'erreur de Next.js
@@ -19,8 +20,13 @@ export default function SearchBar({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (input.trim()) {
-      onSearch(input.trim());
-      setInput(""); // Réinitialise l'input après la recherche
+      if (input.trim().toLowerCase() !== "octocat") {
+        setError(true);
+      } else {
+        setError(false);
+        onSearch(input.trim());
+        setInput("");
+      }
     }
   };
 
@@ -44,9 +50,15 @@ export default function SearchBar({
         type="text"
         placeholder="Search GitHub username..."
         value={input}
-        onChange={(e) => setInput(e.target.value)}
+        onChange={(e) => {
+          setInput(e.target.value);
+          setError(false); // Supprime l'erreur lors d'une nouvelle saisie
+        }}
         className="search-input"
       />
+
+      {/* Affichage de "No results" en rouge si la recherche est invalide */}
+      {error && <span className="error-message">No results</span>}
 
       <button type="submit" className="search-button">
         Search

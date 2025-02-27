@@ -1,9 +1,9 @@
 "use client";
 
-import { ThemeProvider } from "next-themes";
 import { DM_Sans, Fira_Code } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/layout/Footer";
+import { ThemeProvider } from "next-themes";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],

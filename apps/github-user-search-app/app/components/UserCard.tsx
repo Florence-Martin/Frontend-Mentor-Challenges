@@ -69,15 +69,15 @@ export default function UserCard({
 
         {/* Statistiques */}
         <div className="stats">
-          <div>
+          <div className="details-stats">
             <h4>Repos</h4>
             <p>{public_repos}</p>
           </div>
-          <div>
+          <div className="details-stats">
             <h4>Followers</h4>
             <p>{followers}</p>
           </div>
-          <div>
+          <div className="details-stats">
             <h4>Following</h4>
             <p>{following}</p>
           </div>
@@ -85,7 +85,7 @@ export default function UserCard({
 
         {/* Détails utilisateur */}
         <div className="user-details">
-          <div className="detail-item">
+          <div className={`detail-item ${!location ? "not-available" : ""}`}>
             <Image
               src="/icon-location.svg"
               alt="Location icon"
@@ -96,13 +96,15 @@ export default function UserCard({
             <p>{location || "Not Available"}</p>
           </div>
 
-          <div className="detail-item">
+          <div
+            className={`detail-item ${!twitter_username ? "not-available" : ""}`}
+          >
             <Image
               src="/icon-twitter.svg"
               alt="Twitter icon"
               width={16}
               height={16}
-              className={`icon ${!twitter_username ? "not-available" : ""}`}
+              className="icon"
             />
             {twitter_username ? (
               <a
@@ -118,7 +120,7 @@ export default function UserCard({
             )}
           </div>
 
-          <div className="detail-item">
+          <div className={`detail-item ${!blog ? "not-available" : ""}`}>
             <Image
               src="/icon-website.svg"
               alt="Website icon"
@@ -140,7 +142,7 @@ export default function UserCard({
             )}
           </div>
 
-          <div className="detail-item">
+          <div className={`detail-item ${!company ? "not-available" : ""}`}>
             <Image
               src="/icon-company.svg"
               alt="Company icon"
