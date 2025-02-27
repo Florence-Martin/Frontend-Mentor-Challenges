@@ -1,4 +1,10 @@
 {
+  "projects": {
+    "3-column-preview-card": { "app": "apps/3-column-preview-card" },
+    "github-user-search-app": { "app": "apps/github-user-search-app" },
+    "personal-blog": { "src": "apps/personal-blog" },
+    "time-tracking-dashboard": { "app": "apps/time-tracking-dashboard" }
+  },
   "build": {
     "env": {
       "NODE_ENV": "production"

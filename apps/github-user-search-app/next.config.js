@@ -5,7 +5,7 @@ const nextConfig = {
   },
   experimental: {
     turbo: {
-      enabled: false, // Turbopack désactivé
+      enabled: process.env.ENABLE_TURBOPACK === "true",
     },
   },
 };

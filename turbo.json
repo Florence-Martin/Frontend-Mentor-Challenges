@@ -1,13 +1,18 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "ui": "tui",
-  "globalDependencies": [".env*"],
+  "globalDependencies": [".env*", "ENABLE_TURBOPACK"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"],
-      "persistent": true
+      "inputs": [
+        "**/*.ts",
+        "**/*.tsx",
+        "**/*.json",
+        "**/*.js",
+        ".env*",
+        "ENABLE_TURBOPACK"
+      ],
+      "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {
       "dependsOn": ["^lint"]
