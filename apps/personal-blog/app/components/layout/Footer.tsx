@@ -3,6 +3,7 @@
 import { Heart } from "lucide-react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const socialLinks = [
   {
@@ -28,8 +29,14 @@ const socialLinks = [
 ];
 
 export default function Footer() {
-  const { theme } = useTheme();
+  const { theme } = useTheme() || { theme: "light" };
+  const [mounted, setMounted] = useState(false);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null; // Empêche l'affichage côté serveur
   return (
     <footer className="w-[317px] h-[38px] md:w-[640px] flex flex-row items-center justify-between mx-auto mb-4">
       <p className="text-preset-8 text-[var(--foreground)] flex items-center gap-2">

@@ -1,7 +1,7 @@
 export async function fetchArticles() {
-  const response = await fetch("/articles/article.json");
-  if (!response.ok) {
-    throw new Error("Failed to fetch articles");
+  const res = await fetch("/articles/article.json");
+  if (!res.ok) {
+    throw new Error("Erreur lors du chargement des articles");
   }
-  return response.json();
+  return res.json();
 }

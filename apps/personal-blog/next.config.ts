@@ -1,10 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    turbo: {
-      enabled: process.env.ENABLE_TURBOPACK === "true",
-    },
+  reactStrictMode: true,
+  images: {
+    domains: ["localhost"],
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
