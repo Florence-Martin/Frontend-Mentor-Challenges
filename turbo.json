@@ -12,7 +12,8 @@
         ".env*",
         "ENABLE_TURBOPACK"
       ],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [".next/**", "!.next/cache/**"],
+      "env": ["TURBO_LOG=minimal"]
     },
     "lint": {
       "dependsOn": ["^lint"]
