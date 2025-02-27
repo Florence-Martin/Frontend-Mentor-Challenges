@@ -2,12 +2,6 @@
   "version": 2,
   "builds": [
     {
-      "env": {
-        "NEXT_DISABLE_ESLINT": "1"
-      }
-    },
-    {
-      "src": "package.json",
       "use": "@vercel/next"
     }
   ],
