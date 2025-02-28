@@ -6,12 +6,12 @@ Ce repository regroupe plusieurs challenges réalisés à partir de **Frontend M
 
 ## 🌐 Challenges disponibles
 
-| Challenge                   | Niveau        | Aperçu                                                 | Lien en ligne                                                              |
-| --------------------------- | ------------- | ------------------------------------------------------ | -------------------------------------------------------------------------- |
-| **3-column-preview-card**   | NEWBIE        | 🔗 [challenge](./apps/3-column-preview-card/)          | 🚀 [Voir en ligne](https://3-column-preview-card-swart-nu.vercel.app/)     |
-| **time-tracking-dashboard** | JUNIOR        | 🔗 [challenge](./apps/time-tracking-dashboard/)        | 🚀 [Voir en ligne](https://time-tracking-dashboard-rho-nine.vercel.app/)   |
-| **github-user-search-app**  | JUNIOR        | 🔗 [premium-challenge](./apps/github-user-search-app/) | 🚀 [Voir en ligne](https://github-user-search-app-lovat-seven.vercel.app/) |
-| 🚧 **personal-blog** 🚧     | INTERMEDIAIRE | 🔗 [premium-challenge](./apps/personal-blog/)          | 🚀                                                                         |
+| Challenge                   | Niveau        | Aperçu                                                 | Lien en ligne                                                                    |
+| --------------------------- | ------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------- |
+| **3-column-preview-card**   | NEWBIE        | 🔗 [challenge](./apps/3-column-preview-card/)          | 🚀 [Voir en ligne](https://3-column-preview-card-swart-nu.vercel.app/)           |
+| **time-tracking-dashboard** | JUNIOR        | 🔗 [challenge](./apps/time-tracking-dashboard/)        | 🚀 [Voir en ligne](https://time-tracking-dashboard-rho-nine.vercel.app/)         |
+| **github-user-search-app**  | JUNIOR        | 🔗 [premium-challenge](./apps/github-user-search-app/) | 🚀 [Voir en ligne](https://github-user-search-app-lovat-seven.vercel.app/)       |
+| 🚧 **personal-blog** 🚧     | INTERMEDIAIRE | 🔗 [premium-challenge](./apps/personal-blog/)          | 🚀 [Voir en ligne](https://frontend-mentor-challenges-personal-blog.vercel.app/) |
 
 ---
 
@@ -37,17 +37,23 @@ Dans le fichier `frontend-mentor-challenges/package.json`, un script `clean-inst
 npm run clean-install
 ```
 
-Cela supprime :
+Cela effectue :
 
-- Le dossier node\*modules
-- Le fichier package-lock.json
-- Puis réinstalle toutes les dépendances pour l’ensemble de la monorepo (y compris les apps et packages dans apps/\* et packages/\_ si elles sont gérées via les workspaces).
+🔥 **Suppression du dossier `node_modules`**  
+🔥 **Suppression du fichier `package-lock.json`**  
+📦 **Réinstallation complète de toutes les dépendances pour l’ensemble de la monorepo** (y compris les apps et packages dans `apps/*` et `packages/*` si elles sont gérées via les workspaces).
 
-📌 Pourquoi ce script est utile ?
+---
 
-- Il assure un environnement propre après un git pull, une mise à jour de dépendances ou un changement de version de Node ou de Next.js.
-- Il évite les erreurs de compatibilité entre les versions de packages.
-- Il est particulièrement utile en monorepo, où plusieurs apps partagent certaines dépendances.
+## 📌 Pourquoi ce script est utile ?
+
+✅ Il assure un environnement propre après un `git pull`, une mise à jour de dépendances ou un changement de version de Node ou de Next.js.
+
+✅ Il évite les erreurs de compatibilité entre les versions de packages.
+
+✅ Il est particulièrement utile dans un **monorepo**, où plusieurs apps partagent certaines dépendances.
+
+---
 
 🛠️ Exemple complet
 
@@ -59,16 +65,40 @@ npm run clean-install
 
 ---
 
-### 🚀 Déploiement sur Vercel
+## 🚀 Déploiement sur Vercel
 
-Jutiliser l'intégration Git automatique de Vercel.
+J’utilise l'intégration **Git automatique** de Vercel.
 
 ---
 
-## 📮 Contact
+## ⚠️ Important - Configuration pour les apps en monorepo
+
+Chaque app (par exemple **`personal-blog`**) doit avoir ses propres **"Build and Deployment Settings"** configurés directement sur l’interface Vercel.
+
+### Exemple de configuration pour `personal-blog`
+
+- **Root Directory** :  
+   `apps/personal-blog`
+
+- **Build Command** :
+
+  ```bash
+  npm run build --workspace=personal-blog
+  ```
+
+- **Install Command** :
+
+  ```bash
+  npm install
+  ```
+
+- **Development Command** (optionnel) :
+  ```bash
+  npm run dev --workspace=personal-blog
+  ```
+
+---
+
+## 📩 Contact
 
 💡 **Une suggestion, une question ?** Contactez-moi sur [LinkedIn](https://www.linkedin.com/in/florence-martin-922b3861/) 🚀
-
-```
-
-```

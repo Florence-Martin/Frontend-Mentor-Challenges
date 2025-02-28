@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-console.log("✅ tailwind.config.js chargé par Vercel");
 const config = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
