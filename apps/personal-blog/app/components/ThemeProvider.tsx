@@ -10,7 +10,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null; // Empêche le render côté serveur
+  if (!mounted) return <>{children}</>;
 
   return (
     <ThemeProvider attribute="class" defaultTheme="light">

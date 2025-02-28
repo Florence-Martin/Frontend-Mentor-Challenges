@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   experimental: {
-    appDir: true, // 👈 Obligatoire pour utiliser `/app`
-  },
-  reactStrictMode: true,
-  images: {
-    domains: ["localhost"],
+    turbo: {
+      enabled: process.env.ENABLE_TURBOPACK === "false",
+    },
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

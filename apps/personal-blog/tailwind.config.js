@@ -1,11 +1,10 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+const config = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-
   theme: {
     extend: {
       colors: {
@@ -43,6 +42,8 @@ module.exports = {
           400: "#F04438",
           600: "#D92D20",
         },
+        background: "var(--background)", // Liaison avec globals.css
+        foreground: "var(--foreground)",
       },
       fontFamily: {
         sans: ["var(--font-dm-sans)", "DM Sans", "sans-serif"],
@@ -119,7 +120,6 @@ module.exports = {
             lineHeight: "130%",
             letterSpacing: "-0.2px",
             fontWeight: "400",
-            fontStyle: "italic",
           },
         ],
         "preset-9": [
@@ -163,3 +163,5 @@ module.exports = {
   },
   plugins: [],
 };
+
+module.exports = config;
