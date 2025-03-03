@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Navbar from "../components/layout/Navbar";
+import SocialIcons from "../components/ui/SocialIcons";
 
 export default function AboutPage() {
   const [menuHeight, setMenuHeight] = useState(0);
@@ -73,6 +74,9 @@ export default function AboutPage() {
           see that coding can be for everyone. Thanks for joining me on this
           journey!
         </p>
+        <br />
+        <p className="text-preset-4 font-sans text-left">Follow me</p>{" "}
+        <SocialIcons />
       </div>
     </section>
   );
