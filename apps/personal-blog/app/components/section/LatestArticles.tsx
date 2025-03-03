@@ -1,14 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { fetchArticles } from "../../../lib/fetchArticles";
-
-interface Article {
-  title: string;
-  slug: string;
-  publishedAt: string;
-}
+import { Article } from "../../../types/articles";
+import ArticleCard from "./ArticleCard";
 
 export default function LatestArticles() {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -43,20 +38,10 @@ export default function LatestArticles() {
         <span className="relative z-10">Latest Articles</span>
         <span className="absolute bottom-1 ml-4 w-10 h-[3px] bg-blue-500"></span>
       </h1>
+
       <ul className="space-y-6">
-        {articles.map(({ title, slug, publishedAt }) => (
-          <li key={slug}>
-            <h3 className="text-preset-5 font-sans text-[var(--heading-color)] font-semibold hover:underline">
-              <Link href={`/blog/${slug}`}>{title}</Link>
-            </h3>
-            <p className="text-preset-8-italic font-sans text-[var(--date-color)]">
-              {new Date(publishedAt).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </p>
-          </li>
+        {articles.map((article) => (
+          <ArticleCard key={article.slug} article={article} />
         ))}
       </ul>
     </section>
