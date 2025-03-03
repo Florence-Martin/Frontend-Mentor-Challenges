@@ -1,20 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
-import Navbar from "../components/layout/Navbar";
 import SocialIcons from "../components/ui/SocialIcons";
 
 export default function AboutPage() {
-  const [menuHeight, setMenuHeight] = useState(0);
-
   return (
     <section className="bg-[var(--background)] text-[var(--foreground)] max-w-2xl mx-auto ">
-      <Navbar setMenuHeight={setMenuHeight} />
-      <div
-        className="bg-[var(--background)] text-[var(--foreground)] max-w-2xl mx-auto px-10 py-8 transition-colors"
-        style={{ marginTop: `${menuHeight}px` }}
-      >
+      <div className="bg-[var(--background)] text-[var(--foreground)] max-w-2xl mx-auto px-10 py-8 transition-colors">
         <h1 className="relative text-preset-2 font-sans font-bold mb-6 text-left text-[var(--heading-color)]">
           <span className="relative z-10">About me</span>
           <span className="absolute left-0 bottom-1 w-40 h-[10px] bg-blue-500"></span>

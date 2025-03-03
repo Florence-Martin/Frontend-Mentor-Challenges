@@ -1,13 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/layout/Navbar";
 import ArticleCard from "../components/section/ArticleCard";
 import { Article } from "../../types/articles";
 import { fetchArticles } from "../../lib/fetchArticles";
 
 export default function BlogPage() {
-  const [menuHeight, setMenuHeight] = useState(0);
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -34,12 +32,8 @@ export default function BlogPage() {
   if (loading) return <p>Loading articles...</p>;
 
   return (
-    <>
-      <Navbar setMenuHeight={setMenuHeight} />
-      <div
-        className="bg-[var(--background)] text-[var(--foreground)] max-w-2xl mx-auto px-10 py-8 transition-colors"
-        style={{ marginTop: `${menuHeight}px` }}
-      >
+    <section className="bg-[var(--background)] text-[var(--foreground)] max-w-2xl mx-auto ">
+      <div className="bg-[var(--background)] text-[var(--foreground)] max-w-2xl mx-auto px-10 py-8 transition-colors">
         <h1 className="relative text-preset-2 font-sans font-bold mb-6 text-left text-[var(--heading-color)]">
           <span className="relative z-10">Latest Articles</span>
           <span className="absolute bottom-1 ml-4 w-10 h-[3px] bg-blue-500"></span>
@@ -60,6 +54,6 @@ export default function BlogPage() {
           ))}
         </ul>
       </div>
-    </>
+    </section>
   );
 }

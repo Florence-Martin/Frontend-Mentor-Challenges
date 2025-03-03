@@ -7,25 +7,17 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import ThemeToggle from "../ui/ThemeToggle";
 
-export default function Navbar({
-  setMenuHeight,
-}: {
-  setMenuHeight: (height: number) => void;
-}) {
+export default function Navbar() {
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { theme } = useTheme();
   const pathname = usePathname();
-  const [menuRef, setMenuRef] = useState<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setMounted(true);
-    if (menuRef) {
-      setMenuHeight(isOpen ? menuRef.offsetHeight + 21 : 0);
-    }
-  }, [isOpen, menuRef, setMenuHeight]);
+  }, []);
 
-  if (!mounted) return null; // ⚠️ Empêche l'erreur d'hydration
+  if (!mounted) return null; // Empêche l'erreur d'hydration
 
   const links = [
     { href: "/", label: "Home" },
@@ -35,9 +27,9 @@ export default function Navbar({
   ];
 
   return (
-    <nav className="bg-[var(--background)] text-[var(--foreground)] transition-colors px-2 mt-4 rounded-xl shadow-md w-[347px] h-[52px] md:w-[640px] mx-auto">
+    <nav className="relative bg-[var(--background)] text-[var(--foreground)] transition-colors px-2 mt-4 rounded-xl shadow-md w-[347px] h-[52px] md:w-[640px] mx-auto z-50">
       <div className="flex items-center justify-between py-2">
-        {/* Profil Image */}
+        {/* Profil */}
         <Image
           src="/assets/image-avatar.jpg"
           alt="Profile"
@@ -46,28 +38,29 @@ export default function Navbar({
           className="rounded-8"
         />
 
-        <div className=" inline-flex">
+        {/* Desktop Nav & Mobile Trigger */}
+        <div className="flex items-center gap-4">
           {/* Desktop Links */}
-          <div className="hidden items-center md:flex gap-6 font-sans">
+          <div className="hidden md:flex gap-6 font-sans">
             {links.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
-                className="hover:underline hover:underline-offset-4 hover:decoration-blue-500"
+                className={`relative pb-1 ${
+                  pathname === href
+                    ? "font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-blue-500"
+                    : "hover:underline hover:underline-offset-4 hover:decoration-blue-500"
+                }`}
               >
                 {label}
               </Link>
             ))}
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Burger Menu Button - Mobile */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`relative transition-colors duration-300 md:hidden p-2 rounded-8 ${
-              isOpen
-                ? "bg-neutral-0 dark:bg-neutral-700 shadow-md"
-                : "bg-transparent"
-            }`}
+            className="relative z-50 md:hidden p-2 rounded-8"
           >
             <Image
               src={
@@ -80,35 +73,35 @@ export default function Navbar({
             />
           </button>
 
+          {/* Theme Toggle */}
           <ThemeToggle />
         </div>
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div
-          ref={setMenuRef}
-          className={`md:hidden mt-4 rounded-12 shadow-lg p-4 transition-all ${
-            theme === "dark"
-              ? "bg-neutral-900 border border-neutral-700"
-              : "bg-white border border-neutral-300"
-          }`}
-        >
+      <div
+        className={`absolute top-full left-0 w-full bg-[var(--background)] border-t border-neutral-300 dark:border-neutral-700 transition-transform duration-300 ease-in-out origin-top ${
+          isOpen ? "scale-y-100" : "scale-y-0"
+        } md:hidden`}
+        style={{ transformOrigin: "top" }}
+      >
+        <div className="flex flex-col gap-4 p-4">
           {links.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              className={`block py-3 px-4 rounded-8 transition-colors ${
-                pathname.startsWith(href)
-                  ? "text-preset-6 font-semibold border-b  border-neutral-200"
-                  : "text-preset-7"
+              onClick={() => setIsOpen(false)} // Fermer au clic
+              className={`py-2 px-4 rounded-lg transition-colors ${
+                pathname === href
+                  ? "font-semibold bg-blue-500 text-white"
+                  : "hover:bg-neutral-200 dark:hover:bg-neutral-800"
               }`}
             >
               {label}
             </Link>
           ))}
         </div>
-      )}
+      </div>
     </nav>
   );
 }
