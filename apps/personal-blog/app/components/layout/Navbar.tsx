@@ -10,14 +10,14 @@ import ThemeToggle from "../ui/ThemeToggle";
 export default function Navbar() {
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const { theme } = useTheme();
   const pathname = usePathname();
+  const { theme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null; // Empêche l'erreur d'hydration
+  if (!mounted) return null; // Empêche l'hydration error
 
   const links = [
     { href: "/", label: "Home" },
@@ -29,7 +29,7 @@ export default function Navbar() {
   return (
     <nav className="relative bg-[var(--background)] text-[var(--foreground)] transition-colors px-2 mt-4 rounded-xl shadow-md w-[347px] h-[52px] md:w-[640px] mx-auto z-50">
       <div className="flex items-center justify-between py-2">
-        {/* Profil */}
+        {/* Avatar */}
         <Image
           src="/assets/image-avatar.jpg"
           alt="Profile"
@@ -38,9 +38,8 @@ export default function Navbar() {
           className="rounded-8"
         />
 
-        {/* Desktop Nav & Mobile Trigger */}
+        {/* Desktop Links + Menu + ThemeToggle */}
         <div className="flex items-center gap-4">
-          {/* Desktop Links */}
           <div className="hidden md:flex gap-6 font-sans">
             {links.map(({ href, label }) => (
               <Link
@@ -57,10 +56,15 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Burger Menu Button - Mobile */}
+          {/* Menu Burger Mobile */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="relative z-50 md:hidden p-2 rounded-8"
+            className={`
+              w-10 h-10 flex items-center justify-center rounded-8 transition-colors
+              ${isOpen ? "shadow-md" : ""}
+              ${isOpen ? (theme === "dark" ? "bg-neutral-0" : "bg-neutral-900") : ""}
+              md:hidden
+            `}
           >
             <Image
               src={
@@ -69,7 +73,15 @@ export default function Navbar() {
               alt="Menu"
               width={24}
               height={24}
-              className={`transition ${theme === "dark" ? "invert" : ""}`}
+              className={`transition ${
+                isOpen
+                  ? theme === "dark"
+                    ? "invert"
+                    : "" // croix : si dark theme => icône inversée
+                  : theme === "dark"
+                    ? "invert"
+                    : ""
+              }`}
             />
           </button>
 
@@ -78,30 +90,28 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`absolute top-full left-0 w-full bg-[var(--background)] border-t border-neutral-300 dark:border-neutral-700 transition-transform duration-300 ease-in-out origin-top ${
-          isOpen ? "scale-y-100" : "scale-y-0"
-        } md:hidden`}
-        style={{ transformOrigin: "top" }}
-      >
-        <div className="flex flex-col gap-4 p-4">
-          {links.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={() => setIsOpen(false)} // Fermer au clic
-              className={`py-2 px-4 rounded-lg transition-colors ${
-                pathname === href
-                  ? "font-semibold bg-blue-500 text-white"
-                  : "hover:bg-neutral-200 dark:hover:bg-neutral-800"
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
+      {/* Menu Mobile qui pousse la page */}
+      {isOpen && (
+        <div className="mt-2 bg-[var(--background)] border border-neutral-200 dark:border-neutral-700 rounded-lg shadow-lg md:hidden">
+          <ul className="flex flex-col divide-y divide-neutral-200 dark:divide-neutral-700 px-4">
+            {links.map(({ href, label }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  onClick={() => setIsOpen(false)}
+                  className={`block py-4 px-6 transition-colors ${
+                    pathname === href
+                      ? "font-bold text-[var(--foreground)]"
+                      : "text-[var(--foreground)]"
+                  }`}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
+      )}
     </nav>
   );
 }

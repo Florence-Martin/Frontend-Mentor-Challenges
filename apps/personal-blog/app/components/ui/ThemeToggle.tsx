@@ -17,7 +17,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className={`p-2 bg-[var(--background)] text-[var(--foreground)] ml-5 rounded-8 border-2 transition-colors ${
+      className={`p-2 bg-[var(--background)] text-[var(--foreground)] rounded-8 border-2 transition-colors ${
         theme === "dark" ? "border-neutral-700" : "border-neutral-200"
       }`}
     >
