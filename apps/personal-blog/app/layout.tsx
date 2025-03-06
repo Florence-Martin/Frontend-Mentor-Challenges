@@ -28,7 +28,6 @@ export default function RootLayout({
         className={`${dmSans.variable} ${firaCode.variable} font-sans antialiased min-h-screen transition-colors bg-background text-foreground`}
       >
         <Providers>
-          {/* Le conteneur principal qui gère la hauteur et la disposition */}
           <div className="min-h-screen flex flex-col justify-between">
             <Navbar />
             <main className="flex-grow max-w-2xl mx-auto">{children}</main>
