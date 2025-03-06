@@ -11,7 +11,7 @@ Ce repository regroupe plusieurs challenges réalisés à partir de **Frontend M
 | **3-column-preview-card**   | NEWBIE        | 🔗 [challenge](./apps/3-column-preview-card/)          | 🚀 [Voir en ligne](https://3-column-preview-card-swart-nu.vercel.app/)           |
 | **time-tracking-dashboard** | JUNIOR        | 🔗 [challenge](./apps/time-tracking-dashboard/)        | 🚀 [Voir en ligne](https://time-tracking-dashboard-rho-nine.vercel.app/)         |
 | **github-user-search-app**  | JUNIOR        | 🔗 [premium-challenge](./apps/github-user-search-app/) | 🚀 [Voir en ligne](https://github-user-search-app-lovat-seven.vercel.app/)       |
-| 🚧 **personal-blog** 🚧     | INTERMEDIAIRE | 🔗 [premium-challenge](./apps/personal-blog/)          | 🚀 [Voir en ligne](https://frontend-mentor-challenges-personal-blog.vercel.app/) |
+| **personal-blog**           | INTERMEDIAIRE | 🔗 [premium-challenge](./apps/personal-blog/)          | 🚀 [Voir en ligne](https://frontend-mentor-challenges-personal-blog.vercel.app/) |
 
 ---
 
